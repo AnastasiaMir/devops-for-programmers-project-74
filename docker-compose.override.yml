@@ -23,5 +23,5 @@ services:
       # - ${PORT_HTTPS:-80}:80
       # - ${PORT_HTTPS:-443}:443
     volumes:
-      - $PWD/services/caddy/Caddyfile
+      - ./services/caddy/Caddyfile:/etc/caddy/Caddyfile
 

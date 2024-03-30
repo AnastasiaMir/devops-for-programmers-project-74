@@ -15,5 +15,19 @@ services:
     ports: # Проброс портов
       # - ${PORT_HTTP:-8080}:8080
       - 8080:8080
+    depends_on:
+      - db
+    environment:
+      - DATABASE_NAME
+      - DATABASE_USERNAME
+      - DATABASE_PASSWORD
+      - DATABASE_PORT
+      - DATABASE_HOST
   
+  db:
+      image: postgres
+      restart: always
+      environment:
+        POSTGRES_PASSWORD: example
+        POSTGRES_USER: postgres
 

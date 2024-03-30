@@ -4,6 +4,7 @@ WORKDIR /app
 # Важно для кеширования слоев
 # RUN npm update and npm update node
 COPY app/package*.json ./
+COPY app/.env.example ./
 
 RUN npm ci
 
