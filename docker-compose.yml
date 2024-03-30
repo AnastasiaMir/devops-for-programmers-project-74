@@ -1,7 +1,7 @@
 # Версия схемы, которую мы используем.
 # Зависит от установленной версии docker
 # https://docs.docker.com/compose/compose-file/
-version: "3"
+version: "3.8"
 # Определяем список сервисов — services
 # Эти сервисы будут частью нашего приложения
 services:
@@ -13,6 +13,6 @@ services:
     image: anastasiamir/docker-hub-devops-for-programmers-project-74
     command: bash -c "sleep 3 && npm test"
     ports: # Проброс портов
-      - "8080:8080"
+      - ${PORT_HTTP:-8080}:8080
   
 
