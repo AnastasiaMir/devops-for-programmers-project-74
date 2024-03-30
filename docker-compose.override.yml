@@ -9,3 +9,19 @@ services:
       - "8080:8080"
     volumes:
       - "./app:/app"
+    depends_on:
+      - caddy
+
+  caddy:
+    image: caddy:2.7.6-alpine
+    restart: unless-stopped
+    cap_add:
+      - NET_ADMIN
+    ports:
+      - "80:80"
+      - "443:443"
+      # - ${PORT_HTTPS:-80}:80
+      # - ${PORT_HTTPS:-443}:443
+    volumes:
+      - $PWD/services/caddy/Caddyfile
+
