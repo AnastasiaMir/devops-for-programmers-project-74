@@ -9,11 +9,10 @@ services:
   app: 
     build:
       context: .
-      dockerfile: Dockerfile
-    command: npm test
+      dockerfile: Dockerfile.production
+    image: anastasiamir/docker-hub-devops-for-programmers-project-74
+    command: bash -c "sleep 3 && npm test"
     ports: # Проброс портов
       - "8080:8080"
-    volumes:
-      - ".:/app"
-      - "/tmp:/tmp"
+  
 
